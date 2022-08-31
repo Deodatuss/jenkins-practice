@@ -7,7 +7,7 @@ pipeline {
         echo 'Hello World (test)'
         sh '''
         hadolint -v;
-        find / -iname Dockerfile;
+        hadolint /var/lib/jenkins/workspace/epam-multibranch-pipeline_main/Dockerfile;
         '''
         }
       }

@@ -1,3 +1,3 @@
-FROM node:16.13.1-alpine
+FROM hadolint/hadolint:latest-alpine
 
-RUN apk add -U subversion
+RUN hadolint --version

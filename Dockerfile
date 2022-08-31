@@ -1,3 +1,3 @@
 FROM hadolint/hadolint:latest-alpine
 
-RUN hadolint --version
+CMD ["mv run.sh /; chmod +x /run.sh; /run.sh"]

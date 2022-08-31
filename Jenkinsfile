@@ -5,9 +5,9 @@ pipeline {
     stage('Pull-and-linting') {
       steps {
         echo 'Hello World (test)'
-        sh ''''
-        hadolint -v
-        find / -iname Dockerfile
+        sh '''
+        hadolint -v;
+        find / -iname Dockerfile;
         '''
         }
       }

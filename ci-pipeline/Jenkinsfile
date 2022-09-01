@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh "docker build -t node-alpine-info:${BUILD_NUMBER} -t node-alpine-info:latest ./ci-pipeline"
+        sh "docker build -t node-alpine-info:build-${BUILD_NUMBER} -t node-alpine-info:latest ./ci-pipeline"
         }
       }
     stage('Login') {
@@ -21,7 +21,7 @@ pipeline {
     stage('Push') {
       steps {
         sh """
-        docker image push serbgn/node-alpine-info:${BUILD_NUMBER}
+        docker image push serbgn/node-alpine-info:build-${BUILD_NUMBER}
         """
         }
       }

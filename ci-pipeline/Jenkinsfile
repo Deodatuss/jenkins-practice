@@ -21,7 +21,7 @@ pipeline {
     stage('Push') {
       steps {
         sh '''
-        docker push -a node-alpine-info
+        docker image push --all-tags node-alpine-info
         '''
         }
       }

@@ -1,13 +1,34 @@
 pipeline {
   agent any
   
+  environment{
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub-alpineinfo-token')
+	}
+  
   stages {
     stage('Build') {
       steps {
+        sh "docker build -t node-alpine-info:${BUILD_NUMBER} -t node-alpine-info:latest ./ci-pipeline"
+        }
+      }
+    stage('Login') {
+      steps {
         sh '''
-        echo Hello from ci-pipeline
+        echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
         '''
         }
       }
+    stage('Push') {
+      steps {
+        sh '''
+        docker push -a node-alpine-info
+        '''
+        }
+      }
+  }
+  post{
+    always{
+      sh 'docker logout'
+    }
   }
 }

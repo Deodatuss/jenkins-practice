@@ -21,7 +21,7 @@ pipeline {
     stage('Push') {
       steps {
         sh """
-        docker image push node-alpine-info:${BUILD_NUMBER}
+        docker image push serbgn/node-alpine-info:${BUILD_NUMBER}
         """
         }
       }

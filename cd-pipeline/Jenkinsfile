@@ -4,7 +4,19 @@ pipeline {
     stage('Fetch') {
       steps {
         echo "parameter tag is ${DOCKER_HUB_BUILD_TAG}"
+        sh "docker pull serbgn/node-alpine-info:${DOCKER_HUB_BUILD_TAG}"
       }
+    }
+    stage('Deploy') {
+      steps {
+        echo "Deploy Stage - COMING SOON"
+      }
+    }
+  }
+  
+  post{
+    cleanup{
+     sh "docker image rm serbgn/node-alpine-info:${DOCKER_HUB_BUILD_TAG}"	
     }
   }
 }

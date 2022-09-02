@@ -1,8 +1,10 @@
-pipeline{
+pipeline {
   agent any
   stages {
-    stage('Fetch'){
-      echo "parameter tag is ${DOCKER-HUB-BUILD-TAG}"
+    stage('Fetch') {
+      steps {
+        echo "parameter tag is ${DOCKER-HUB-BUILD-TAG}"
+      }
     }
   }
 }

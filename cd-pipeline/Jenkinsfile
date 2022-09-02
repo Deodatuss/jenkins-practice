@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Fetch') {
       steps {
-        echo "parameter tag is ${DOCKER-HUB-BUILD-TAG}"
+        echo "parameter tag is ${DOCKER_HUB_BUILD_TAG}"
       }
     }
   }
